@@ -1,12 +1,12 @@
 <?php
 
-echo @color("green","Package Three\n");
-echo @color("green","NanangFathurrahman\n");
-echo @color('green', "Enter Number\t\t: ");
+echo @color("green","Paket Three Murah\n");
+echo @color("green","Nanang Fathurrahman\n");
+echo @color('green', "Masukan Nomor\t\t: ");
 $nomor = trim(fgets(STDIN));
 $login = login($nomor);
 echo @color('green', $login['message']."\n");
-echo @color('white', "OTP Code\t\t: ");
+echo @color('white', "Kode OTP\t\t: ");
 $otp = trim(fgets(STDIN));
 $login = otplogin($nomor,$otp);
 if (strpos(json_encode($login), '"status":true')) {
@@ -19,18 +19,18 @@ if (strpos(json_encode($login), '"status":true')) {
     $sisakuota = $profil['sumOfInternet'];
     $poin = $profil['stotalPoin'];
 
-	echo @color('green', "Credit Balance\t\t: ");
+	echo @color('green', "Jumlah Pulsa\t\t: ");
 	echo @color('white', "$balance\n");
-	echo @color('green', "Simcard Period\t: ");
+	echo @color('green', "Masa Aktif Kartu\t: ");
 	echo @color('white', "$aktif\n");
-    echo @color('green', "Remaining Quota\t: ");
+    echo @color('green', "Jumlah Kuota Saat Init: ");
     echo @color('white', "$sisakuota\n");
-    echo @color('green', "Point Bonstri\t\t: ");
+    echo @color('green', "Poin Bonstri\t\t: ");
     echo @color('white', "$poin Poin\n");
     cek:
-    echo @color('green', "Choose Package:\n");
+    echo @color('green', "Pilih Paket:\n");
     echo @color('white', "[1] Welcome Reward 5GB ==> Rp 1\n[2] (NEW) 10GB 30 Hari ==> Rp 15000\n[3] (NEW) 15GB 30 Hari ==> Rp 20000\n[4] 25GB 25rb (Diskon) ==> Rp 25000\n[5] 25GB 24 Jam 20 Hari ==> Rp 25000\n[6] (NEW) 25GB 20 Hari ==> Rp 25000\n[7] (NEW) 25GB 20 Hari ==> Rp 25000\n[8] 25GB 24 Jam 30 Hari ==> Rp 29000\n[9] (NEW) 25GB 30 Hari ==> Rp 29000\n[10] (NEW) 55GB 30 Hari ==> Rp 50000\n[11] (NEW) 65GB 30 Hari ==> Rp 60000\n[12] (NEW) 75GB 30 Hari ==> Rp 75000\n[13] (NEW) 90GB 30 Hari ==> Rp 90000\n[14] (NEW) 100GB 30 Hari ==> Rp 90000\n");
-    echo @color('green', "Enter Number Package : ");
+    echo @color('green', "Masukan Nomor Paket : ");
     $pilih = trim(fgets(STDIN));
     switch ($pilih) {
             case '1':
@@ -77,7 +77,7 @@ if (strpos(json_encode($login), '"status":true')) {
             break;
         
         default:
-            echo @color('red', "Choose a Package in Advance!\n");
+            echo @color('red', "Pilih Paket Terlebih Dahulu\n");
             goto cek;
             break;
     }
@@ -85,23 +85,23 @@ if (strpos(json_encode($login), '"status":true')) {
     $name = $cek['product']['productName'];
     $price = $cek['product']['productPrice'];
     $deskripsi = $cek['product']['productDescription'];
-    echo @color('green', "Package Name\t: ");
+    echo @color('green', "Nama Paket\t: ");
     echo @color('white', "$name\n");
-    echo @color('green', "Price\t\t: ");
+    echo @color('green', "Harga\t\t: ");
     echo @color('white', "$price\n");
-    echo @color('green', "Package Description\t: ");
+    echo @color('green', "Deskripsi Paket\t: ");
     echo @color('white', "$deskripsi\n");
-    echo @color('green', "Make Sure Your Credit Balance Is Enough");
-    echo @color('green', "Continue Purchasing Packages ? (y/n) :");
+    echo @color('green', "Pastikan Pulsa Anda Cukup");
+    echo @color('green', "Lanjutkan Pembelian Paket ? (y/n) :");
     $aa = trim(fgets(STDIN));
     if(strtolower($aa) !== 'y') {
         goto cek;
     }
     $beli = beli($nomor,$plan,$secret,$prodid);
     if ($beli['status'] == true) {
-        echo @color('green', "Package Purchase Successful, Please Check Your Quota\n");
+        echo @color('green', "Pembelian Paket Berhasil, Silahkan Cek Kuota Anda\n");
     } else {
-        echo @color('red', "Package Purchase Failed, Please Try Again\n");
+        echo @color('red', "Pembelian Paket Gagal, Silahkan Coba Kembali\n");
     }
 
 
