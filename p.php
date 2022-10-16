@@ -1,6 +1,6 @@
 <?php
 
-echo @color("green","Package Threw\n");
+echo @color("green","Package Three\n");
 echo @color("green","NanangFathurrahman\n");
 echo @color('green', "Enter Number\t\t: ");
 $nomor = trim(fgets(STDIN));
