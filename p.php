@@ -6,7 +6,7 @@ echo @color('green', "Masukan Nomor\t\t: ");
 $nomor = trim(fgets(STDIN));
 $login = login($nomor);
 echo @color('green', $login['message']."\n");
-echo @color('white', "Kode OTP\t\t: ");
+echo @color('green', "Kode OTP\t\t: ");
 $otp = trim(fgets(STDIN));
 $login = otplogin($nomor,$otp);
 if (strpos(json_encode($login), '"status":true')) {
@@ -23,7 +23,7 @@ if (strpos(json_encode($login), '"status":true')) {
 	echo @color('white', "$balance\n");
 	echo @color('green', "Masa Aktif Kartu\t: ");
 	echo @color('white', "$aktif\n");
-    echo @color('green', "Jumlah Kuota Saat Init: ");
+    echo @color('green', "Jumlah Kuota Saat Ini\t: ");
     echo @color('white', "$sisakuota\n");
     echo @color('green', "Poin Bonstri\t\t: ");
     echo @color('white', "$poin Poin\n");
@@ -91,7 +91,6 @@ if (strpos(json_encode($login), '"status":true')) {
     echo @color('white', "$price\n");
     echo @color('green', "Deskripsi Paket\t: ");
     echo @color('white', "$deskripsi\n");
-    echo @color('green', "Pastikan Pulsa Anda Cukup");
     echo @color('green', "Lanjutkan Pembelian Paket ? (y/n) :");
     $aa = trim(fgets(STDIN));
     if(strtolower($aa) !== 'y') {
