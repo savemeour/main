@@ -1,7 +1,7 @@
 <?php
 
-echo @color("green","                 Paket Three Murah                  \n");
-echo @color("green","NanangFathurrahman\n");to
+echo @color("green","Package Threw\n");
+echo @color("green","NanangFathurrahman\n");
 echo @color('green', "Enter Number\t\t: ");
 $nomor = trim(fgets(STDIN));
 $login = login($nomor);
